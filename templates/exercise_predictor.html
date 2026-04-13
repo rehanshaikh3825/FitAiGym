@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %}Exercise Predictor - FitAI{% endblock %}
+{% block content %}
+<div class="container main-content">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center section-title mt-5">AI Exercise Recommendations</h1>
+      <p class="text-center lead mb-5">Get personalized workout recommendations based on your profile</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="prediction-card card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <h3 class="card-title mb-4">Enter Your Details</h3>
+          <form id="exerciseForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="exAge" class="form-label">Age</label>
+                <input type="number" class="form-control" id="exAge" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="exGender" class="form-label">Gender</label>
+                <select class="form-select" id="exGender" required>
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="exHeight" class="form-label">Height (cm)</label>
+                <input type="number" class="form-control" id="exHeight" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="exWeight" class="form-label">Weight (kg)</label>
+                <input type="number" class="form-control" id="exWeight" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="exFitnessLevel" class="form-label">Fitness Level</label>
+              <select class="form-select" id="exFitnessLevel" required>
+                <option value="">Select fitness level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exGoal" class="form-label">Fitness Goal</label>
+              <select class="form-select" id="exGoal" required>
+                <option value="">Select your goal</option>
+                <option value="weight_loss">Weight Loss</option>
+                <option value="muscle_gain">Muscle Gain</option>
+                <option value="endurance">Endurance Training</option>
+                <option value="general_fitness">General Fitness</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exInjuries" class="form-label">Any Injuries or Health Conditions</label>
+              <textarea class="form-control" id="exInjuries" rows="2"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Get Exercise Recommendations</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="prediction-card card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <h3 class="card-title mb-4">Your Personalized Exercise Plan</h3>
+          <div id="exerciseResults" class="text-center mt-4">
+            <p class="text-muted">Enter your details to get AI-powered exercise recommendations</p>
+            <!-- Results will be injected into #exerciseResults by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Pricing - FitAI{% endblock %}
+{% block content %}
+<div class="container main-content">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center section-title mt-5">Membership Plans</h1>
+      <p class="text-center lead mb-5">Choose the plan that works best for your fitness journey</p>
+    </div>
+  </div>
+
+  <div class="row g-4 mb-5">
+    <div class="col-md-4">
+      <div class="card text-center h-100 border-primary pricing-card animate-on-scroll">
+        <div class="card-header py-4" style="background: rgba(59, 130, 246, 0.1);">
+          <h3>Basic</h3>
+          <div class="price display-4">1500<span class="fs-6">/mo</span></div>
+          <p class="text-muted">Perfect for beginners</p>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Equipment Access</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basic Workout Plan</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Group Classes</li>
+            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i>AI Diet Plan</li>
+            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i>Progress Forecasting</li>
+            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i>Personal Trainer</li>
+          </ul>
+          <button class="btn btn-premium select-plan-btn" data-plan="basic" data-bs-toggle="modal" data-bs-target="#registerModal">Select Plan</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center h-100 border-primary pricing-card animate-on-scroll">
+        <div class="card-header py-4" style="background: rgba(59, 130, 246, 0.1);">
+          <h3>Pro</h3>
+          <div class="price display-4">2500<span class="fs-6">/mo</span></div>
+          <p>Our most popular plan</p>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Equipment Access</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AI Workout Plan</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>All Group Classes</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basic Diet Plan</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Progress Tracking</li>
+            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i>Progress Forecasting</li>
+          </ul>
+          <button class="btn btn-premium select-plan-btn" data-plan="pro" data-bs-toggle="modal" data-bs-target="#registerModal">Select Plan</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center h-100 border-primary pricing-card animate-on-scroll">
+        <div class="card-header py-4" style="background: rgba(59, 130, 246, 0.1);">
+          <h3>Premium</h3>
+          <div class="price display-4">3000<span class="fs-6">/mo</span></div>
+          <p class="text-muted">For serious results</p>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Equipment Access</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AI Workout Plan</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>All Group Classes</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AI Diet Plan</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Progress Tracking</li>
+            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Progress Forecasting</li>
+          </ul>
+          <button class="btn btn-premium select-plan-btn" data-plan="premium" data-bs-toggle="modal" data-bs-target="#registerModal">Select Plan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

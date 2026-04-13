@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}About - FitAI{% endblock %}
+{% block content %}
+<div class="container main-content">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center section-title mt-5">About FitAI Gym</h1>
+      <p class="text-center lead mb-5">Our mission is to make fitness smarter, more accessible, and more personal.</p>
+    </div>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-lg-8">
+      <div class="glass-card animate-on-scroll">
+        <div class="card-body p-4">
+          <h2 class="section-title text-center">About FitAI Gym</h2>
+          <p class="lead text-center mb-4">FitAI Gym is revolutionizing the fitness industry with cutting-edge artificial intelligence and personalized training experiences.</p>
+          <p>Founded on the principle that fitness should be accessible and tailored to everyone, we combined expertise from sports science and machine learning to create a platform that understands YOUR body and goals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-md-6">
+      <div class="glass-card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <h3>Who We Are</h3>
+          <p>FitAI combines fitness expertise with cutting-edge AI to deliver personalized workout and nutrition plans that evolve with you.</p>
+          <p>We believe that everyone deserves a tailored path to health—no guesswork, just smart guidance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="glass-card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <h3>What We Offer</h3>
+          <ul>
+            <li>AI-generated workout and diet plans</li>
+            <li>Progress tracking and predictive analytics</li>
+            <li>Community classes and coaching</li>
+            <li>Modern facilities and equipment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact Us</a>
+  </div>
+</div>
+{% endblock %}

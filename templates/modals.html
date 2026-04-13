@@ -1,0 +1,234 @@
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content prediction-card">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex align-items-center gap-2" id="loginModalLabel">
+          <i class="fas fa-right-to-bracket text-primary"></i>
+          Login to Your Account
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+{% if login_error %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.bootstrap) {
+      const loginEl = document.getElementById('loginModal');
+      if (loginEl) {
+        const modal = bootstrap.Modal.getOrCreateInstance(loginEl);
+        modal.show();
+      }
+    }
+  });
+</script>
+{% endif %}
+      <div class="modal-body">
+        <form method="post" action="{% url 'login' %}" novalidate>
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label" style="color: black;">Email address</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+              <input type="email" class="form-control" id="loginEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label" style="color: black;">Password</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-lock"></i></span>
+              <input type="password" class="form-control" id="loginPassword" name="password" placeholder="••••••••" autocomplete="current-password" required>
+              <div class="invalid-feedback">Password is required.</div>
+            </div>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe" name="remember" style="color: black;">
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        {% if login_error %}
+        <div class="alert alert-danger mt-3" role="alert">{{ login_error }}</div>
+        {% endif %}
+        <div class="text-center mt-3">
+          <a href="#" class="text-decoration-none">Forgot password?</a>
+        </div>
+        <div class="text-center mt-3">
+          <span class="me-2">Don't have an account?</span>
+          <button type="button" id="openRegisterFromLogin" class="btn btn-link p-0 align-baseline">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content prediction-card">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex align-items-center gap-2" id="registerModalLabel" style="color: white;">
+          <i class="fas fa-user-plus text-primary"></i>
+          Create a New Account
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% if registration_error %}
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            if (window.bootstrap) {
+              const registerEl = document.getElementById('registerModal');
+              if (registerEl) {
+                const modal = bootstrap.Modal.getOrCreateInstance(registerEl);
+                modal.show();
+              }
+            }
+          });
+        </script>
+        {% endif %}
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-personal-tab" data-bs-toggle="pill" data-bs-target="#pills-personal" type="button" role="tab">Personal Info</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-body-tab" data-bs-toggle="pill" data-bs-target="#pills-body" type="button" role="tab">Body Metrics</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-payment-tab" data-bs-toggle="pill" data-bs-target="#pills-payment" type="button" role="tab">Payment</button>
+          </li>
+        </ul>
+        <form id="registrationForm" method="post" action="{% url 'register' %}" novalidate>
+          {% csrf_token %}
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-personal" role="tabpanel">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName" class="form-label" style="color: white;">First Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="firstName" name="fname" placeholder="John" autocomplete="given-name" required>
+                    <div class="invalid-feedback">First name is required.</div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="lastName" class="form-label" style="color: white;">Last Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="lastName" name="lname" placeholder="Doe" autocomplete="family-name" required>
+                    <div class="invalid-feedback">Last name is required.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label" style="color: white;">Email address</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                  <div class="invalid-feedback">Please provide a valid email.</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label" style="color: white;">Password</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Create a password" autocomplete="new-password" required>
+                  <div class="invalid-feedback">Password is required.</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label" style="color: white;">Confirm Password</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  <input type="password" class="form-control" id="confirmPassword" name="confirmpassword" placeholder="Repeat your password" autocomplete="new-password" required>
+                  <div class="invalid-feedback">Please confirm your password.</div>
+                </div>
+              </div>
+              <div class="text-end">
+                <button type="button" class="btn btn-primary" id="nextToBody">Next</button>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-body" role="tabpanel">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="age" class="form-label" style="color: white;">Age</label>
+                  <input type="number" class="form-control" id="age" name="age" min="0" placeholder="e.g. 28">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="gender" class="form-label" style="color: white;">Gender</label>
+                  <select class="form-select" id="gender" name="gender" style="color: white;">
+                    <option value="" selected>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="height" class="form-label" style="color: white;">Height (cm)</label>
+                  <input type="number" class="form-control" id="height" name="height" step="0.01" placeholder="e.g. 175">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="weight" class="form-label" style="color: white;">Weight (kg)</label>
+                  <input type="number" class="form-control" id="weight" name="weight" step="0.01" placeholder="e.g. 70">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="fitnessGoal" class="form-label" style="color: white;">Fitness Goal</label>
+                <select class="form-select" id="fitnessGoal" name="fitness_goal">
+                  <option value="" selected>Select your goal</option>
+                  <option value="weight_loss">Weight Loss</option>
+                  <option value="muscle_gain">Muscle Gain</option>
+                  <option value="endurance">Endurance Training</option>
+                  <option value="maintenance">Maintenance</option>
+                </select>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" id="backToPersonal">Back</button>
+                <button type="button" class="btn btn-primary" id="nextToPayment">Next</button>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-payment" role="tabpanel">
+              <div class="mb-3">
+                <label for="cardNumber" class="form-label" style="color: white;">Card Number</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                  <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" autocomplete="cc-number">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="expiryDate" class="form-label" style="color: white;">Expiry Date</label>
+                  <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" inputmode="numeric" autocomplete="cc-exp">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cvv" class="form-label" style="color: white;">CVV</label>
+                  <input type="text" class="form-control" id="cvv" placeholder="123" inputmode="numeric" autocomplete="cc-csc">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="plan" class="form-label" style="color: white;"  >Select Plan</label>
+                <select class="form-select" id="plan" name="plan">
+                  <option value="" selected>Choose a membership plan</option>
+                  <option value="basic">Basic - 1000/month</option>
+                  <option value="pro">Pro - 2000/month</option>
+                  <option value="premium">Premium - 3000/month</option>
+                </select>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" id="backToBody">Back</button>
+                <button type="submit" class="btn btn-primary">Complete Registration</button>
+              </div>
+            </div>
+          </div>
+          {% if registration_error %}
+          <div class="alert alert-danger mt-3" role="alert">{{ registration_error }}</div>
+          {% endif %}
+        </form>
+        <p class="text-center mt-3 mb-0" style="font-size: 0.9rem; color: white;">By creating an account, you agree to our Terms and Privacy Policy.</p>
+      </div>
+    </div>
+  </div>
+</div>

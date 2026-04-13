@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}Diet Predictor - FitAI{% endblock %}
+{% block content %}
+<div class="container main-content">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center section-title mt-5">AI Diet Recommendations</h1>
+      <p class="text-center lead mb-5">Get personalized diet recommendations based on your profile</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="prediction-card card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <h3 class="card-title mb-4">Enter Your Details</h3>
+          <form id="dietForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="dietAge" class="form-label">Age</label>
+                <input type="number" class="form-control" id="dietAge" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="dietGender" class="form-label">Gender</label>
+                <select class="form-select" id="dietGender" required>
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="dietHeight" class="form-label">Height (cm)</label>
+                <input type="number" class="form-control" id="dietHeight" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="dietWeight" class="form-label">Weight (kg)</label>
+                <input type="number" class="form-control" id="dietWeight" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="dietActivity" class="form-label">Activity Level</label>
+              <select class="form-select" id="dietActivity" required>
+                <option value="">Select activity level</option>
+                <option value="sedentary">Sedentary</option>
+                <option value="light">Light</option>
+                <option value="moderate">Moderate</option>
+                <option value="active">Active</option>
+                <option value="very_active">Very active</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="dietGoal" class="form-label">Diet Goal</label>
+              <select class="form-select" id="dietGoal" required>
+                <option value="">Select your goal</option>
+                <option value="weight_loss">Weight Loss</option>
+                <option value="muscle_gain">Muscle Gain</option>
+                <option value="maintenance">Maintenance</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="dietPreferences" class="form-label">Dietary Preferences</label>
+              <select class="form-select" id="dietPreferences">
+                <option value="none">No restrictions</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten_free">Gluten-free</option>
+                <option value="dairy_free">Dairy-free</option>
+              </select>
+            </div>
+            <!-- Optional foods JSON payload (populated by client code) -->
+            <input type="hidden" id="foodsJson" name="foods_json" />
+            <button type="submit" class="btn btn-primary w-100">Get Diet Recommendations</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="prediction-card card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <h3 class="card-title mb-4">Your Personalized Diet Plan</h3>
+          <div id="dietResults" class="text-center mt-4">
+            <p class="text-muted">Enter your details to get AI-powered diet recommendations</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

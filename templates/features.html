@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}Features - FitAI{% endblock %}
+{% block content %}
+<div class="container main-content">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center section-title mt-5">FitAI Features</h1>
+      <p class="text-center lead mb-5">Discover how our AI-powered platform revolutionizes your fitness journey</p>
+    </div>
+  </div>
+  
+  <div class="row g-4 mb-5">
+    <div class="col-md-6">
+      <div class="feature-card card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <div class="feature-icon mb-4 float">
+            <i class="fas fa-user-circle fa-3x text-primary"></i>
+          </div>
+          <h3 class="card-title">Personalized Profile</h3>
+          <p class="card-text">Create your detailed profile with essential information like weight, height, age, fitness goals, and health considerations.</p>
+          <ul>
+            <li>Comprehensive health assessment</li>
+            <li>Goal setting and tracking</li>
+            <li>Progress photo storage</li>
+            <li>Body measurements history</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="feature-card card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <div class="feature-icon mb-4 float">
+            <i class="fas fa-brain fa-3x text-primary"></i>
+          </div>
+          <h3 class="card-title">AI-Powered Plans</h3>
+          <p class="card-text">Advanced algorithms create customized workout and nutrition plans that adapt as you progress.</p>
+          <ul>
+            <li>Dynamic workout routines</li>
+            <li>Personalized meal plans</li>
+            <li>Adaptive difficulty adjustment</li>
+            <li>Exercise form analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="feature-card card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <div class="feature-icon mb-4 float">
+            <i class="fas fa-chart-line fa-3x text-primary"></i>
+          </div>
+          <h3 class="card-title">Progress Tracking</h3>
+          <p class="card-text">Monitor your journey with detailed analytics and predictive forecasting.</p>
+          <ul>
+            <li>Weight trend analysis</li>
+            <li>Body measurement tracking</li>
+            <li>Performance metrics</li>
+            <li>Achievement milestones</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="feature-card card h-100 animate-on-scroll">
+        <div class="card-body p-4">
+          <div class="feature-icon mb-4 float">
+            <i class="fas fa-utensils fa-3x text-primary"></i>
+          </div>
+          <h3 class="card-title">Nutrition Planning</h3>
+          <p class="card-text">Get personalized meal plans with recipes and nutritional information.</p>
+          <ul>
+            <li>Custom meal plans</li>
+            <li>Macronutrient tracking</li>
+            <li>Recipe suggestions</li>
+            <li>Grocery list generator</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <a class="btn btn-primary btn-lg" href="{% url 'pricing' %}">See Pricing Plans</a>
+  </div>
+</div>
+{% endblock %}

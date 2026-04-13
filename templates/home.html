@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block title %}Home - FitAI{% endblock %}
+{% block content %}
+   <!-- Home Page -->
+    <div id="home-page" class="page-content">
+        <!-- Hero Section with Updated Background -->
+        <section class="hero-section text-center">
+            <div class="hero-content container">
+                <h1 class="display-4 fw-bold mb-4 animate-on-scroll">Smart Gym Management Powered by AI</h1>
+                <p class="lead mb-5 animate-on-scroll">Personalized workout plans, diet recommendations, and progress tracking with machine learning algorithms.</p>
+                {% if not user.is_authenticated %}
+                <button class="btn btn-light btn-lg px-5 py-3 fw-bold pulse animate-on-scroll" data-bs-toggle="modal" data-bs-target="#registerModal">Get Started Today</button>
+                {% endif %}
+            </div>
+        </section>
+
+        
+        {% if user.is_authenticated %}
+        <!-- Quick Access Tools -->
+        <section id="quick-tools" class="py-5">
+            <div class="container">
+                <h2 class="text-center section-title animate-on-scroll">Jump Back In</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="quick-tool-card prediction-card animate-on-scroll">
+                            <div class="card-body p-4 d-flex align-items-center">
+                                <div class="me-3 tool-icon gradient-exercise">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-2" style="color: black;">Exercise Recommendation</h3>
+                                    <p class="mb-3 text-muted">Get AI-powered, personalized workout plans tailored to your profile.</p>
+                                    <a class="btn btn-primary" href="{% url 'exercise_predictor' %}">Go to Exercise Predictor</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="quick-tool-card prediction-card animate-on-scroll">
+                            <div class="card-body p-4 d-flex align-items-center">
+                                <div class="me-3 tool-icon gradient-diet">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-2" style="color: black;">Diet Recommendation</h3>
+                                    <p class="mb-3 text-muted">Calculate calories and get meal suggestions based on your goals.</p>
+                                    <a class="btn btn-primary" href="{% url 'diet_predictor' %}">Go to Diet Predictor</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+
+        
+        <!-- Features Preview -->
+        <section id="features-preview" class="py-5">
+            <div class="container">
+                <h2 class="text-center section-title animate-on-scroll">How FitAI Works</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card card h-100 animate-on-scroll">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon mb-4 float">
+                                    <i class="fas fa-user-circle fa-3x text-primary"></i>
+                                </div>
+                                <h4 class="card-title">Personalized Profile</h4>
+                                <p class="card-text">Create your profile with essential details like weight, height, age, and fitness goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card card h-100 animate-on-scroll">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon mb-4 float">
+                                    <i class="fas fa-brain fa-3x text-primary"></i>
+                                </div>
+                                <h4 class="card-title">AI-Powered Plans</h4>
+                                <p class="card-text">Our machine learning algorithms create customized workout and diet plans based on your profile.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card card h-100 animate-on-scroll">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon mb-4 float">
+                                    <i class="fas fa-chart-line fa-3x text-primary"></i>
+                                </div>
+                                <h4 class="card-title">Progress Tracking</h4>
+                                <p class="card-text">Track your progress with predictive analytics that forecast your body transformation over time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a class="btn btn-primary btn-lg" href="{% url 'features' %}">View All Features</a>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Pricing Preview -->
+        <section id="pricing-preview" class="py-5">
+            <div class="container">
+                <h2 class="text-center section-title animate-on-scroll">Membership Plans</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card text-center h-100 border-primary pricing-card animate-on-scroll">
+                            <div class="card-header bg-primary text-white py-4">
+                                <h3 style="color: black;">Basic</h3>
+                                <div class="price display-4">1500<span class="fs-6">/mo</span></div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Equipment Access</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basic Workout Plan</li>
+                                    <li class="mb-2"><i class="fas fa-times text-danger me-2"></i>AI Diet Plan</li>
+                                    <li class="mb-2"><i class="fas fa-times text-danger me-2"></i>Progress Forecasting</li>
+                                </ul>
+                                <button class="btn btn-primary select-plan-btn" data-plan="premium" data-bs-toggle="modal" data-bs-target="#registerModal">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center h-100 border-primary pricing-card animate-on-scroll">
+                            <div class="card-header bg-primary text-white py-4">
+                                <h3 style="color: black;">Pro</h3>
+                                <div class="price display-4">2000<span class="fs-6">/mo</span></div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Equipment Access</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AI Workout Plan</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basic Diet Plan</li>
+                                    <li class="mb-2"><i class="fas fa-times text-danger me-2"></i>Progress Forecasting</li>
+                                </ul>
+                                <button class="btn btn-primary select-plan-btn" data-plan="pro" data-bs-toggle="modal" data-bs-target="#registerModal">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center h-100 border-primary pricing-card animate-on-scroll">
+                            <div class="card-header bg-primary text-white py-4">
+                                <h3 style="color: black;">Premium</h3>
+                                <div class="price display-4">3000<span class="fs-6">/mo</span></div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Equipment Access</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AI Workout Plan</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AI Diet Plan</li>
+                                    <li class="mb-2"><i class="fas fa-times text-danger me-2"></i>Progress Forecasting</li>
+                                </ul>
+                                <button class="btn btn-primary select-plan-btn" data-plan="basic" data-bs-toggle="modal" data-bs-target="#registerModal">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a class="btn btn-primary btn-lg" href="{% url 'pricing' %}">View All Plans</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

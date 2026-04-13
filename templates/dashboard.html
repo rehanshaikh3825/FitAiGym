@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard - FitAI{% endblock %}
+{% block content %}
+<div class="container main-content mt-5">
+  <div class="row mb-5 text-center">
+    <div class="col-12">
+      <h1 class="section-title">Admin Management Console</h1>
+      <p class="lead text-muted">Manage site orders, user profiles, and shop inventory from one place.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      {% if user.is_staff %}
+      <div id="management" class="dashboard-section active">
+        <div class="row g-4 mb-4">
+          <!-- Orders Management -->
+          <div class="col-md-4">
+            <div class="glass-card text-center p-5 h-100">
+              <div class="mb-4">
+                <i class="fas fa-shopping-cart fa-4x text-primary shadow-sm p-3 rounded-circle bg-dark-soft"></i>
+              </div>
+              <h3 class="mb-3">Orders</h3>
+              <p class="text-muted mb-4">Manage and track customer purchase history and order status.</p>
+              <a href="/admin/gymapp/order/" class="btn btn-premium w-100" target="_blank">Manage Orders</a>
+            </div>
+          </div>
+          
+          <!-- User Management -->
+          <div class="col-md-4">
+            <div class="glass-card text-center p-5 h-100">
+              <div class="mb-4">
+                <i class="fas fa-user-shield fa-4x text-primary shadow-sm p-3 rounded-circle bg-dark-soft"></i>
+              </div>
+              <h3 class="mb-3">Users</h3>
+              <p class="text-muted mb-4">Oversee user registration, membership plans, and fitness goals.</p>
+              <a href="/admin/gymapp/userprofile/" class="btn btn-premium w-100" target="_blank">Manage Users</a>
+            </div>
+          </div>
+          
+          <!-- Shop Management -->
+          <div class="col-md-4">
+            <div class="glass-card text-center p-5 h-100">
+              <div class="mb-4">
+                <i class="fas fa-boxes fa-4x text-primary shadow-sm p-3 rounded-circle bg-dark-soft"></i>
+              </div>
+              <h3 class="mb-3">Inventory</h3>
+              <p class="text-muted mb-4">Update product listings, stock levels, and store pricing.</p>
+              <div class="d-flex gap-2">
+                <a href="/admin/gymapp/product/" class="btn btn-premium-outline flex-grow-1" target="_blank">Manage</a>
+                <a href="{% url 'add_product' %}" class="btn btn-premium flex-grow-1">Add New</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="text-center py-5 glass-card animate-on-scroll">
+          <i class="fas fa-lock fa-4x mb-4 text-warning"></i>
+          <h2 class="section-title">Access Restricted</h2>
+          <p class="lead">The management console is only available to fitness center administrators.</p>
+          <a href="{% url 'home' %}" class="btn btn-premium mt-4">Return Home</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .bg-dark-soft {
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+  }
+</style>
+{% endblock %}

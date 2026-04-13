@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}Contact - FitAI{% endblock %}
+{% block content %}
+<div class="container main-content">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center section-title mt-5">Contact Us</h1>
+      <p class="text-center lead mb-5">We'd love to hear from you. Send us a message and we'll get back to you soon.</p>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-7">
+      <div class="glass-card h-100 animate-on-scroll">
+          <h3 class="mb-4 d-flex align-items-center gap-2">
+            <i class="fas fa-paper-plane text-primary"></i>
+            Send a Message
+          </h3>
+          <form>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="name">Name</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  <input class="form-control" id="name" type="text" placeholder="Your name" required>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="email">Email</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                  <input class="form-control" id="email" type="email" placeholder="you@example.com" required>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="subject">Subject</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                <input class="form-control" id="subject" type="text" placeholder="How can we help?" required>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Type your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-premium w-100 py-3">Send Message</button>
+          </form>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="glass-card h-100 animate-on-scroll">
+          <h3 class="mb-4 d-flex align-items-center gap-2">
+            <i class="fas fa-info-circle text-primary"></i>
+            Contact Details
+          </h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-4 d-flex align-items-start gap-3">
+              <div class="icon-box text-primary"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <strong class="d-block text-white">Location</strong>
+                <span>Sangola - Pandharpur Rd, Sangola, Maharashtra 413307</span>
+              </div>
+            </li>
+            <li class="mb-4 d-flex align-items-start gap-3">
+              <div class="icon-box text-primary"><i class="fas fa-phone"></i></div>
+              <div>
+                <strong class="d-block text-white">Phone</strong>
+                <span>9689583733</span>
+              </div>
+            </li>
+            <li class="mb-4 d-flex align-items-start gap-3">
+              <div class="icon-box text-primary"><i class="fas fa-envelope"></i></div>
+              <div>
+                <strong class="d-block text-white">Email</strong>
+                <span>info@fitaigym.com</span>
+              </div>
+            </li>
+            <li class="mb-0 d-flex align-items-start gap-3">
+              <div class="icon-box text-primary"><i class="fas fa-clock"></i></div>
+              <div>
+                <strong class="d-block text-white">Open Hours</strong>
+                <span>Mon - Sat: 6:00 AM - 10:00 PM</span>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
